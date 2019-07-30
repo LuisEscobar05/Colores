@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Colores</title>
+</head>
+<body>
+        <label>Color1 en hexa:</label><br>
+        <input type="text" id="color1" maxlength="6"><br><br>
+        <label>Color2 en hexa:</label><br>
+        <input type="text" id="color2" maxlength="6"><br><br>
+        <button onclick="calcularPro(document.getElementById('color1').value, document.getElementById('color2').value)">Calcular promedio</button><br><br>
+        <label >Promedio de colores es: <input type="text" id="promedio"> </label>
+</body>
+    <script>
+        function calcularPro(color1,color2){
+            color1.split("");
+            color2.split("");
+            var agruparR1 = color1[0]+color1[1];
+            var agruparR2 = color2[0]+color2[1]; 
+            var agruparG1 = color1[2]+color1[3];
+            var agruparG2 = color2[2]+color2[3];
+            var agruparB1 = color1[4]+color1[5]; 
+            var agruparB2 = color2[4]+color2[5];
+
+
+            //conversion de hexadecimal a decimal
+            var sumaDecimalR = (parseInt(agruparR1,16)+parseInt(agruparR2,16))/2;
+            var sumaDecimalG = (parseInt(agruparG1,16)+parseInt(agruparG2,16))/2;
+            var sumaDecimalB = (parseInt(agruparB1,16)+parseInt(agruparB2,16))/2;
+
+
+            var sumaDecimalR2 = parseInt(sumaDecimalR);
+            var sumaDecimalG2 = parseInt(sumaDecimalG);
+            var sumaDecimalB2 = parseInt(sumaDecimalB);
+
+            //conversion de decimal a hexadecimal
+            var rhexa = sumaDecimalR2.toString(16);
+            var ghexa = sumaDecimalG2.toString(16);
+            var bhexa = sumaDecimalB2.toString(16);
+            
+            //agrupar
+            var agruparHexa = rhexa+ghexa+bhexa;
+            
+            return document.getElementById('promedio').value=agruparHexa.toUpperCase();
+        }
+        
+    </script>
+</html>
